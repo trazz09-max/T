@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0b0d10" />
+  <title>Tesla Stream Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">TESLA STREAM HUB</p>
+        <h1>What do you want to watch?</h1>
+      </div>
+      <div class="clock-card" aria-label="Current time">
+        <span id="clock">--:--</span>
+        <small id="date">Loading…</small>
+      </div>
+    </header>
+
+    <section class="notice" role="note">
+      <span class="notice-icon">P</span>
+      <div>
+        <strong>Use while parked</strong>
+        <p>Video playback may be limited by Tesla or the streaming service. Each service opens in its own website.</p>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Streaming controls">
+      <label class="search-wrap">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search apps" autocomplete="off" />
+      </label>
+      <button id="favoritesToggle" class="toolbar-button" type="button" aria-pressed="false">★ Favorites</button>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Streaming apps</h2>
+        <span id="resultCount"></span>
+      </div>
+      <div id="appGrid" class="app-grid" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state" hidden>No matching apps found.</p>
+    </section>
+
+    <section class="quick-links">
+      <h2>Quick links</h2>
+      <div class="quick-grid">
+        <a href="https://www.google.com" class="quick-card">Web Search</a>
+        <a href="https://www.youtube.com/feed/subscriptions" class="quick-card">YouTube Subscriptions</a>
+        <a href="https://www.youtube.com/feed/history" class="quick-card">Watch History</a>
+        <button id="customLinkButton" class="quick-card button-reset" type="button">Add Custom Link</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>This launcher does not bypass subscriptions, logins, DRM, vehicle safety controls, or service restrictions.</p>
+    </footer>
+  </main>
+
+  <dialog id="customDialog">
+    <form method="dialog" id="customForm">
+      <div class="dialog-header">
+        <h2>Add a custom link</h2>
+        <button class="close-button" value="cancel" aria-label="Close">×</button>
+      </div>
+      <label>
+        Name
+        <input id="customName" required maxlength="30" placeholder="Example: My TV" />
+      </label>
+      <label>
+        Website address
+        <input id="customUrl" required type="url" placeholder="https://example.com" />
+      </label>
+      <div class="dialog-actions">
+        <button value="cancel" class="secondary-button">Cancel</button>
+        <button id="saveCustom" value="default" class="primary-button">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

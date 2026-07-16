@@ -1,6 +1,6 @@
 # Tesla Stream Hub
 
-A large-button streaming website designed for use in a Tesla browser while the vehicle is parked.
+A large-button streaming website designed for use in a Tesla browser.
 
 ## Included
 

@@ -1,0 +1,1 @@
+Upload index.html and the assets folder to the top level of your existing GitHub repository. Keep family-photo.jpg inside assets. Streaming playback depends on Tesla browser support. Use video only while parked.

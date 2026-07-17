@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#080a0d">
+  <title>Bethea Tesla Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="tesla-mark">T</div>
+
+      <button class="nav-button active" data-page="home">
+        <span class="nav-icon">⌂</span><span>Home</span>
+      </button>
+      <button class="nav-button" data-page="streaming">
+        <span class="nav-icon">▶</span><span>Streaming</span>
+      </button>
+      <button class="nav-button" data-page="yankees">
+        <span class="nav-icon">⚾</span><span>Yankees HQ</span>
+      </button>
+      <a class="nav-button" href="https://www.mlb.com" target="_blank" rel="noopener">
+        <span class="nav-icon">MLB</span><span>MLB.com</span>
+      </a>
+      <button class="nav-button" data-page="weather">
+        <span class="nav-icon">☀</span><span>Weather</span>
+      </button>
+      <button class="nav-button" data-page="notes">
+        <span class="nav-icon">✎</span><span>Notes</span>
+      </button>
+      <button class="nav-button" data-page="favorites">
+        <span class="nav-icon">★</span><span>Favorites</span>
+      </button>
+
+      <div class="sidebar-spacer"></div>
+      <div class="parked-note">Streaming availability depends on Tesla browser support.</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">BETHEA TESLA HOME</div>
+          <h1 id="pageTitle">Home</h1>
+        </div>
+        <div class="time-block">
+          <strong id="clock">--:--</strong>
+          <span id="date">---</span>
+        </div>
+      </header>
+
+      <section id="home" class="page active">
+        <div class="hero-card">
+          <img src="family-photo.jpg" alt="Bethea family photo">
+          <div class="hero-overlay"></div>
+          <div class="hero-copy">
+            <div class="eyebrow">WELCOME</div>
+            <h2>Welcome, Bethea’s <span class="heart">♡</span></h2>
+            <p>Ready for the road.</p>
+            <span class="status-pill">Model X Plaid</span>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="card streaming-card">
+            <div class="card-header">
+              <h3>Streaming</h3>
+              <button class="link-button" data-page="streaming">See all</button>
+            </div>
+            <div id="homeStreaming" class="app-grid compact"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3>Yankees HQ</h3>
+              <button class="link-button" data-page="yankees">Open</button>
+            </div>
+            <div class="yankees-summary">
+              <div class="ny-logo">NY</div>
+              <div>
+                <strong>New York Yankees</strong>
+                <p>Schedule, standings, scores and videos</p>
+              </div>
+            </div>
+            <div class="quick-links">
+              <a href="https://www.mlb.com/yankees/schedule" target="_blank" rel="noopener">Schedule</a>
+              <a href="https://www.mlb.com/yankees/standings" target="_blank" rel="noopener">Standings</a>
+              <a href="https://www.mlb.com" target="_blank" rel="noopener">MLB.com</a>
+            </div>
+          </article>
+
+          <article class="card weather-preview">
+            <div class="card-header">
+              <h3>Weather</h3>
+              <button class="link-button" data-page="weather">Details</button>
+            </div>
+            <div class="weather-main">
+              <span class="weather-icon">☀</span>
+              <div>
+                <strong>Riverview / Tampa</strong>
+                <p>Tap to view the current forecast</p>
+              </div>
+            </div>
+            <a class="wide-link" href="https://weather.com/weather/today/l/Riverview+FL" target="_blank" rel="noopener">Open forecast</a>
+          </article>
+
+          <article class="card notes-preview">
+            <div class="card-header">
+              <h3>Quick Notes</h3>
+              <button class="link-button" data-page="notes">View all</button>
+            </div>
+            <form id="quickNoteForm" class="inline-form">
+              <input id="quickNoteInput" maxlength="100" placeholder="Add a reminder">
+              <button type="submit">Add</button>
+            </form>
+            <div id="quickNotes" class="note-list"></div>
+          </article>
+
+          <article class="card favorites-card">
+            <div class="card-header">
+              <h3>Favorites</h3>
+              <button class="link-button" data-page="favorites">Edit</button>
+            </div>
+            <div id="homeFavorites" class="app-grid compact"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="streaming" class="page">
+        <div class="section-intro">
+          <h2>Streaming</h2>
+          <p>These buttons open the official service websites directly.</p>
+        </div>
+        <div id="streamingGrid" class="app-grid large"></div>
+      </section>
+
+      <section id="yankees" class="page">
+        <div class="section-intro">
+          <h2>Yankees HQ</h2>
+          <p>Quick access to games, standings, scores and videos.</p>
+        </div>
+        <div class="tile-grid">
+          <a class="feature-tile" href="https://www.mlb.com/yankees" target="_blank" rel="noopener"><span>NY</span><strong>Yankees Home</strong></a>
+          <a class="feature-tile" href="https://www.mlb.com/yankees/schedule" target="_blank" rel="noopener"><span>◫</span><strong>Schedule</strong></a>
+          <a class="feature-tile" href="https://www.mlb.com/yankees/standings" target="_blank" rel="noopener"><span>≡</span><strong>Standings</strong></a>
+          <a class="feature-tile" href="https://www.mlb.com/yankees/video" target="_blank" rel="noopener"><span>▶</span><strong>Yankees Videos</strong></a>
+          <a class="feature-tile" href="https://www.mlb.com/live-stream-games/" target="_blank" rel="noopener"><span>TV</span><strong>MLB.TV</strong></a>
+          <a class="feature-tile" href="https://www.mlb.com" target="_blank" rel="noopener"><span>MLB</span><strong>MLB.com</strong></a>
+        </div>
+      </section>
+
+      <section id="weather" class="page">
+        <div class="section-intro">
+          <h2>Weather</h2>
+          <p>Forecast and radar links for Riverview and Tampa.</p>
+        </div>
+        <div class="weather-large">
+          <span>☀</span>
+          <div>
+            <strong>Riverview, Florida</strong>
+            <p>Choose a weather source below.</p>
+          </div>
+        </div>
+        <div class="tile-grid">
+          <a class="feature-tile" href="https://weather.com/weather/today/l/Riverview+FL" target="_blank" rel="noopener"><span>☀</span><strong>Weather.com</strong></a>
+          <a class="feature-tile" href="https://www.accuweather.com/en/us/riverview/33578/weather-forecast/337603" target="_blank" rel="noopener"><span>°</span><strong>AccuWeather</strong></a>
+          <a class="feature-tile" href="https://radar.weather.gov/" target="_blank" rel="noopener"><span>⌁</span><strong>Weather Radar</strong></a>
+        </div>
+      </section>
+
+      <section id="notes" class="page">
+        <div class="section-intro">
+          <h2>Notes</h2>
+          <p>Notes are saved in this browser.</p>
+        </div>
+        <form id="fullNoteForm" class="note-form">
+          <textarea id="fullNoteInput" maxlength="300" placeholder="Type a note or reminder..."></textarea>
+          <button type="submit">Save note</button>
+        </form>
+        <div id="fullNotes" class="full-note-list"></div>
+      </section>
+
+      <section id="favorites" class="page">
+        <div class="section-intro">
+          <h2>Favorites</h2>
+          <p>Select which apps appear on your home screen.</p>
+        </div>
+        <div id="favoritesEditor" class="favorites-editor"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
